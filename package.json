@@ -64,9 +64,6 @@
     "t-component": "1.0.0",
     "type-component": "0.0.1"
   },
-  "scripts": {
-    "postinstall": "node ./bin/civicstack-install --config && node ./bin/civicstack-config && node ./bin/civicstack-build"
-  },
   "devDependencies": {
     "mongodb-migrations": "^0.5.2"
   }

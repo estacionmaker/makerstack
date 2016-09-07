@@ -1,16 +1,21 @@
 FROM node:argon
 MAINTAINER Matías Lescano <matias@democraciaenred.org>
 
-RUN apt-get update && \
-  apt-get install -y libkrb5-dev && \
-  npm config set python python2.7
+ENV NODE_PATH=. \
+    DEBUG="civicstack*"
 
-COPY package.json /usr/src/
+COPY ["package.json", "/usr/src/"]
 
 WORKDIR /usr/src
 
 RUN npm install --quiet --unsafe-perm
 
+COPY [".", "/usr/src/"]
+
+RUN node ./bin/civicstack-install --config && \
+    node ./bin/civicstack-config && \
+    node ./bin/civicstack-build
+
 EXPOSE 3000
 
-CMD ["make"]
+CMD ["node", "index.js"]
