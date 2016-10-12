@@ -1,5 +1,5 @@
 # Maker Stack
-This is a repository for open source civic tools from many countries and organizations
+This is a repository for free software and open source tools for making things.
 
 ![Maker Stack](https://cldup.com/fch4kOvICp.png)
 
